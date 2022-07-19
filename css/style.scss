@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+$primary-color:#45369E;
+$accent-color: #429E3E;
+@mixin display-flex($direction,
+$justify:flex-start) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+}
+
+body {
+    @include display-flex(column,
+    space-between);
+    height: 100vh;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+header {
+    background-color: $primary-color;
+    @include display-flex(row,
+    start);
+    align-items: center;
+    padding: 0.5rem 0 0.5rem 1rem;
+}
+
+.header-items {
+    margin-left: 1rem;
+    color: #ffff;
+}
+
+main {
+    width: 95%;
+    margin: auto;
+    @include display-flex(column,
+    space-evenly);
+    align-items: flex-start;
+}
+
+h2 {
+    color: $accent-color;
+}
+
+header img {
+    width: 100px;
+}
+
+footer {
+    background-color: $primary-color;
+    @include display-flex(column,
+    center);
+    align-items: flex-start;
+    padding-left: 1rem;
+    color: #ffffff;
+}
+
+@media (min-width:768px) {
+    main {
+        width: 95%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+    section.lessons {
+        grid-column: 1/3;
+        grid-row: 1/2;
+    }
+    section.sleep-outside {
+        grid-column: 3/4;
+        grid-row: 1/2;
+    }
+    section.final-project {
+        grid-column: 3/4;
+        grid-row: 2/3;
+    }
+}
